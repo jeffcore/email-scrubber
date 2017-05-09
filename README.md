@@ -17,3 +17,6 @@ File: email5.txt will be the cleaned up version of the list.
 ## Background
 
 The scrub files were built from analyzing a list of 1 million known bad emails from an ecommerce website. I also did research on finding invalid emails based on words, domain and character combinations. This program was created in 2011 before my CS degree.
+
+## Open Source Reason
+I open sourced this program to help build the scrub file lists. The ruby code is basic implementation, but the scrub lists can be used in any language.
