@@ -6,5 +6,5 @@ spam@spam.com
 sdfgisd;ghs;dh@hsdgh.com
 spamspam@spam.com
 joe@nospan.com
-john@googlemail.com
+john@googleemail.com
 stacy@scrubber.com
