@@ -1,24 +1,29 @@
+## Email Scrubber 2011
 
 ##BAD FORMAT SCRUB
-puts "Bad Format Scrub Starts"
-b = File.new("results_badformat.txt", "w+")
-e2 = File.new("email1.txt", "w+")
-File.open("email.txt").each do |f|
-  f.each_line do |line|
-    if !(line.match(/^[^@].+@\S\S+\.\S+[^@]$/))
-      b.puts line
-    else
-      e2.puts line
+def bad_format_rewrite_email_list ()
+  puts "Bad Format Scrub Starts"
+  b = File.new("results_badformat.txt", "w+")
+  e2 = File.new("email1.txt", "w+")
+  File.open("email.txt").each do |f|
+    f.each_line do |line|
+      if !(line.match(/^[^@].+@\S\S+\.\S+[^@]$/))
+        b.puts line
+      else
+        e2.puts line
+      end
     end
   end
+  puts "Bad Format Scrub Ends"
+  puts Time.now.to_s
+  puts " "
+
+  e2.close
+  b.close  
 end
-puts "Bad Format Scrub Ends"
-puts Time.now.to_s
 
-e2.close
-b.close
-
-$emailTextFileNumber = 1
+# constant to name file
+$email_text_file_number = 1
 
 ## scrub emails against list in scrubFile parameter
 ## rewrites source email list to new file excluding bad emails
@@ -33,8 +38,8 @@ def scrubber_rewrite_email_list (name, resultsFile, scrubFile)
   puts Time.now
 
   b = File.new(resultsFile, "w+")
-  e2 = File.new("email" + ($emailTextFileNumber + 1).to_s() +".txt", "w+")
-  File.open("email" + $emailTextFileNumber.to_s() +".txt").each do |f|
+  e2 = File.new("email" + ($email_text_file_number + 1).to_s() +".txt", "w+")
+  File.open("email" + $email_text_file_number.to_s() +".txt").each do |f|
     f.each_line do |line|
       i = 0
       File.open(scrubFile).each do |s|
@@ -62,10 +67,12 @@ def scrubber_rewrite_email_list (name, resultsFile, scrubFile)
   puts total_rows.to_s + " executed"
   puts " "
 
-  $emailTextFileNumber += 1
+  $email_text_file_number += 1
 
 end
 
+##BAD FORMAT SCRUB
+bad_format_rewrite_email_list()
 ##FULL EMAIL OBVIOUS SCRUB
 scrubber_rewrite_email_list("Email Obvious Scrub", "results_obvious.txt", "scrub_obvious.txt")
 ##FULL RECOMMENDED SCRUB
