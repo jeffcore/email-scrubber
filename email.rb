@@ -1,4 +1,4 @@
-## Email Scrubber
+
 ##BAD FORMAT SCRUB
 puts "Bad Format Scrub Starts"
 b = File.new("results_badformat.txt", "w+")
@@ -20,9 +20,13 @@ b.close
 
 $emailTextFileNumber = 1
 
-##rewrites source email file removing bad emails
+## scrub emails against list in scrubFile parameter
+## rewrites source email list to new file excluding bad emails
+## why do I do this, you might ask?
+##   1. offers speed improvements for bad lists
+##   2. so bad email output files have unique emails
+
 def scrubber_rewrite_email_list (name, resultsFile, scrubFile)
-  puts "email number" + ($emailTextFileNumber + 1).to_s()
   total_rows = 0
 
   puts name + " Starts"
@@ -59,7 +63,7 @@ def scrubber_rewrite_email_list (name, resultsFile, scrubFile)
   puts " "
 
   $emailTextFileNumber += 1
- # puts $emailTextFileNumber
+
 end
 
 ##FULL EMAIL OBVIOUS SCRUB
