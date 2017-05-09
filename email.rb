@@ -23,7 +23,6 @@ $emailTextFileNumber = 1
 ##rewrites source email file removing bad emails
 def scrubber_rewrite_email_list (name, resultsFile, scrubFile)
   puts "email number" + ($emailTextFileNumber + 1).to_s()
-   puts "fuck you"
   total_rows = 0
 
   puts name + " Starts"
@@ -61,37 +60,6 @@ def scrubber_rewrite_email_list (name, resultsFile, scrubFile)
 
   $emailTextFileNumber += 1
  # puts $emailTextFileNumber
-end
-
-#SCRUB METHOD
-def scrubber (name, resultsFile, scrubFile)
-
-  puts name + " Starts"
-  puts Time.now
-  total_rows = 0
-  b = File.new(resultsFile, "w+")
-  File.open("email2.txt").each do |f|
-    f.each_line do |line|
-      i = 0
-      File.open(scrubFile).each do |s|
-        s.each_line do |word|
-          if line.upcase.match(word.strip.upcase)
-            if i == 0
-              b.puts line
-              i= i + 1
-            end
-          end
-          total_rows = total_rows + 1
-        end
-      end
-    end
-  end
-
-  puts name + " Ends"
-  puts Time.now.to_s
-  puts total_rows.to_s + " executed"
-  puts " "
-
 end
 
 ##FULL EMAIL OBVIOUS SCRUB
