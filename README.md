@@ -16,4 +16,4 @@ File: email5.txt will be the cleaned up version of the list.
 
 ## Background
 
-The scrub files were built from analyzing a list of 1 million known bad emails from an ecommerce website. I also did research on finding invalid emails based on words, domain and character combinations.
+The scrub files were built from analyzing a list of 1 million known bad emails from an ecommerce website. I also did research on finding invalid emails based on words, domain and character combinations. The program was created in 2011 before my CS degree.
