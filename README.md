@@ -1,4 +1,5 @@
 # Email Scrubber
+Simple email scrubber that finds invalid emails.
 
 ## How To Use
 
